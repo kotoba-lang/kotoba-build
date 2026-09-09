@@ -21,7 +21,7 @@
             ["node:os" :as os]
             ["node:path" :as path]
             [clojure.edn :as edn]
-            [clojure.string :as str]))
+            [kotoba.lang.text :as str]))
 
 (def script
   (or (first (filter (fn [a] (.endsWith a ".cljs")) (rest (.slice js/process.argv 0))))
