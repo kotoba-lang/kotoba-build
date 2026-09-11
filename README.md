@@ -10,8 +10,8 @@ a deployable directory out. It compiles with an **empty
 `requiredCapabilities`**, because deciding a build touches nothing.
 
 ```bash
-nbb bin/kotoba_build.cljk example/build.edn                 # release
-nbb bin/kotoba_build.cljk example/build.edn --mode dev      # ends by serving it
+kbb --backend sci bin/kotoba_build.cljk example/build.edn                 # release
+kbb --backend sci bin/kotoba_build.cljk example/build.edn --mode dev      # ends by serving it
 ```
 
 ```
@@ -91,7 +91,7 @@ the failure this repo is about, so it says so instead.
 kotoba -M test "$PWD/kotoba/build_core.kotoba"
 
 # build the example app, serve it, and CLICK IT in a real headless browser
-nbb test/build_acceptance.cljk
+kbb --backend sci test/build_acceptance.cljk
 ```
 
 The acceptance ends in a browser on purpose. A test that asserted the plan's

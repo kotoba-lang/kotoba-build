@@ -1,4 +1,4 @@
-#!/usr/bin/env nbb
+#!/usr/bin/env kbb
 ;; Acceptance for kotoba-build: build the example app, serve it with the dev
 ;; server, and DRIVE IT IN A REAL BROWSER.
 ;;
@@ -17,7 +17,7 @@
 ;; Exit codes: 0 passed, 1 failed, 2 REFUSED (a tool needed to answer is
 ;; missing -- and a skipped check is not a pass).
 ;;
-;;   nbb test/build_acceptance.cljk
+;;   kbb --backend sci test/build_acceptance.cljk
 
 (ns build-acceptance
   (:require ["node:child_process" :as cp]
