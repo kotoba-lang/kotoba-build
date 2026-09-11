@@ -7,8 +7,8 @@
 ;; It decides nothing about what a build IS -- not the step order, not the
 ;; shell, not the manifest, not whether a title may go in a page.
 ;;
-;;   nbb bin/kotoba_build.cljs build.edn
-;;   nbb bin/kotoba_build.cljs build.edn --mode dev     # ends by serving
+;;   nbb bin/kotoba_build.cljk build.edn
+;;   nbb bin/kotoba_build.cljk build.edn --mode dev     # ends by serving
 ;;
 ;; Exit codes: 0 built, 1 failed, 2 REFUSED (a tool needed to answer is
 ;; missing, or the guest refused the config). A refusal is not a pass.
@@ -25,7 +25,7 @@
 
 (def script
   (or (first (filter (fn [a] (.endsWith a ".cljs")) (rest (.slice js/process.argv 0))))
-      "bin/kotoba_build.cljs"))
+      "bin/kotoba_build.cljk"))
 
 (def repo-root (path/resolve (path/dirname (path/resolve script)) ".."))
 

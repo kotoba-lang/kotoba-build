@@ -17,7 +17,7 @@
 ;; Exit codes: 0 passed, 1 failed, 2 REFUSED (a tool needed to answer is
 ;; missing -- and a skipped check is not a pass).
 ;;
-;;   nbb test/build_acceptance.cljs
+;;   nbb test/build_acceptance.cljk
 
 (ns build-acceptance
   (:require ["node:child_process" :as cp]
@@ -29,7 +29,7 @@
 
 (def script
   (or (first (filter (fn [a] (.endsWith a ".cljs")) (rest (.slice js/process.argv 0))))
-      "test/build_acceptance.cljs"))
+      "test/build_acceptance.cljk"))
 (def repo-root (path/resolve (path/dirname (path/resolve script)) ".."))
 (def port 8793)
 

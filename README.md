@@ -1,7 +1,7 @@
 # kotoba-build
 
 **The build, as a value.** `kotoba/build_core.kotoba` turns a config into an
-ordered vector of inert steps; `bin/kotoba_build.cljs` performs them. Nothing
+ordered vector of inert steps; `bin/kotoba_build.cljk` performs them. Nothing
 about what a build *is* — the step order, the shell, the manifest, whether a
 title may go in a page — is decided in JavaScript.
 
@@ -10,8 +10,8 @@ a deployable directory out. It compiles with an **empty
 `requiredCapabilities`**, because deciding a build touches nothing.
 
 ```bash
-nbb bin/kotoba_build.cljs example/build.edn                 # release
-nbb bin/kotoba_build.cljs example/build.edn --mode dev      # ends by serving it
+nbb bin/kotoba_build.cljk example/build.edn                 # release
+nbb bin/kotoba_build.cljk example/build.edn --mode dev      # ends by serving it
 ```
 
 ```
@@ -91,7 +91,7 @@ the failure this repo is about, so it says so instead.
 kotoba -M test "$PWD/kotoba/build_core.kotoba"
 
 # build the example app, serve it, and CLICK IT in a real headless browser
-nbb test/build_acceptance.cljs
+nbb test/build_acceptance.cljk
 ```
 
 The acceptance ends in a browser on purpose. A test that asserted the plan's
