@@ -174,7 +174,7 @@
     (let [dir (fs/mkdtempSync (path/join (os/tmpdir) "kotoba-build-acc-"))
           cfg-file (write-config! dir)
           dist (path/join dir "dist")
-          built (sh "nbb" [(path/join repo-root "bin" "kotoba_build.cljs") cfg-file])]
+          built (sh "nbb" [(path/join repo-root "bin" "kotoba_build.cljk") cfg-file])]
       (check! "the build exits 0" 0 (:exit built))
       (when-not (zero? (:exit built)) (println (:out built) (:err built)))
       (check! "the bundle is written" true (fs/existsSync (path/join dist "app.mjs")))
@@ -190,7 +190,7 @@
                 (.-size (fs/statSync (path/join dist "app.mjs")))
                 (:bytes bundle)))
       ;; serve it with the repo's own dev server, then look at it
-      (let [server (cp/spawn "nbb" #js[(path/join repo-root "bin" "kotoba_build.cljs")
+      (let [server (cp/spawn "nbb" #js[(path/join repo-root "bin" "kotoba_build.cljk")
                                        cfg-file "--mode" "dev" "--port" (str port)]
                              #js {:stdio "ignore"})
             profile (path/join dir "browser-profile")
